@@ -1,3 +1,6 @@
+import org.gradle.api.tasks.testing.logging.TestExceptionFormat
+import org.gradle.api.tasks.testing.logging.TestLogEvent
+
 plugins {
     id("java")
     id("se.patrikerdes.use-latest-versions") version "0.2.18"
@@ -5,6 +8,8 @@ plugins {
     application
     jacoco
     checkstyle
+    // Плагин для публикации отчета о покрытии тестами на SonarQube
+    id("org.sonarqube") version "6.0.1.5171"
 }
 
 application {
@@ -25,10 +30,24 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform()
+    testLogging {
+        exceptionFormat = TestExceptionFormat.FULL
+        events = mutableSetOf(TestLogEvent.FAILED, TestLogEvent.PASSED, TestLogEvent.SKIPPED)
+        showStandardStreams = true
+    }
 }
+
+// Конфигурация плагина org.sonarqube
+sonar {
+  properties {
+    property("sonar.projectKey", "vppatrick_java-project-61")
+    property("sonar.organization", "vppatrick")
+    property("sonar.host.url", "https://sonarcloud.io")
+  }
+}
+
+tasks.jacocoTestReport { reports { xml.required.set(true) } }
 
 tasks.getByName("run", JavaExec::class) {
     standardInput = System.`in`
 }
-
-tasks.jacocoTestReport { reports { xml.required.set(true) } }
