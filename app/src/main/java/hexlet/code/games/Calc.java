@@ -27,6 +27,5 @@ public class Calc {
             answers[i] = Integer.toString(result);
         }
         Engine.start(instruction, questions, answers);
-
     }
 }
