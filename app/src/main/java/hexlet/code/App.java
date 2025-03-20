@@ -13,6 +13,7 @@ public class App {
                 + "\n2 - Even"
                 + "\n3 - Calc"
                 + "\n4 - GCD"
+                + "\n5 - Progression"
                 + "\n0 - Exit");
         Scanner scanner = new Scanner(System.in);
         System.out.print("Your choice: ");
@@ -29,6 +30,9 @@ public class App {
                 break;
             case "4":
                 GCD.startGame();
+                break;
+            case "5":
+                Progression.startGame();
                 break;
             default:
                 System.exit(0);
