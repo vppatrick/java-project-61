@@ -16,7 +16,7 @@ run-dist: # запуск исполняемого файла
 	./build/install/app/bin/app
 
 inst-dist:
-	./gradlew clean checkstyleMain installDist
+	./gradlew clean installDist
 
 run:
 	./gradlew run
