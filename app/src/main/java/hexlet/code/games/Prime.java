@@ -18,10 +18,13 @@ public class Prime {
     public static void startGame() {
         String instruction = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
         Random random = new Random();
-        String[] questions = new String[3];
-        String[] answers = new String[3];
-        for (int i = 0; i < 3; i++) {
-            int number = random.nextInt(41) + 1;
+        int count = 3;
+        String[] questions = new String[count];
+        String[] answers = new String[count];
+
+        int limit = 41;
+        for (int i = 0; i < count; i++) {
+            int number = random.nextInt(limit) + 1;
             questions[i] = Integer.toString(number);
             if (isPrime(number)) {
                 answers[i] = "yes";
