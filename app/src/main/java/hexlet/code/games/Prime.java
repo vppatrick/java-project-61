@@ -4,6 +4,8 @@ import hexlet.code.Engine;
 import java.util.Random;
 
 public class Prime {
+    public static final int COUNT_OF_STEP_GAME = 3;
+    public static final int RANDOM_UPPER_LIMIT = 41;
     private static boolean isPrime(int n) {
         if (n < 2) {
             return false;
@@ -18,13 +20,11 @@ public class Prime {
     public static void startGame() {
         String instruction = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
         Random random = new Random();
-        int count = 3;
-        String[] questions = new String[count];
-        String[] answers = new String[count];
+        String[] questions = new String[COUNT_OF_STEP_GAME];
+        String[] answers = new String[COUNT_OF_STEP_GAME];
 
-        int limit = 41;
-        for (int i = 0; i < count; i++) {
-            int number = random.nextInt(limit) + 1;
+        for (int i = 0; i < COUNT_OF_STEP_GAME; i++) {
+            int number = random.nextInt(RANDOM_UPPER_LIMIT) + 1;
             questions[i] = Integer.toString(number);
             if (isPrime(number)) {
                 answers[i] = "yes";
