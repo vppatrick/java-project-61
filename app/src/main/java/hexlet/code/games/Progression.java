@@ -4,26 +4,27 @@ import hexlet.code.Engine;
 import java.util.Random;
 
 public class Progression {
+    public static final int COUNT_OF_STEP_GAME = 3;
+    public static final int RANDOM_UPPER_LIMIT = 91;
+    public static final int MIN_RANDOM_NUMBER = 5;
+    public static final int MAX_RANDOM_NUMBER = 10;
     public static void startGame() {
         String instruction = "What number is missing in the progression?";
         Random random = new Random();
-        int count = 3;
-        String[] questions = new String[count];
-        String[] answers = new String[count];
+        String[] questions = new String[COUNT_OF_STEP_GAME];
+        String[] answers = new String[COUNT_OF_STEP_GAME];
 
-        int limit = 90;
-        for (int i = 0; i < count; i++) {
-            int min = 5;
-            int max = 10;
-            int length = random.nextInt(max - min + 1) + min;
 
-            int increment = random.nextInt(5) + 2;
+        for (int i = 0; i < COUNT_OF_STEP_GAME; i++) {
+            int length = random.nextInt(MAX_RANDOM_NUMBER - MIN_RANDOM_NUMBER + 1) + MIN_RANDOM_NUMBER;
+
+            int increment = random.nextInt(MAX_RANDOM_NUMBER - MIN_RANDOM_NUMBER) + 2;
 
             String[] progression = new String[length];
 
             int indexOfHiddenItem = random.nextInt(length);
 
-            int initValue = random.nextInt(limit) + 2;
+            int initValue = random.nextInt(RANDOM_UPPER_LIMIT) + 2;
             progression[0] = Integer.toString(initValue);
 
             for (int j = 1; j < length; j++) {
