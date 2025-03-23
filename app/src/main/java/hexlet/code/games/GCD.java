@@ -6,12 +6,12 @@ import java.util.Random;
 public class GCD {
     public static final int COUNT_OF_STEP_GAME = 3;
     public static final int RANDOM_UPPER_LIMIT = 100;
+    private static final Random random = new Random();
     private static int calcGCD(int a, int b) {
         return (a % b == 0) ? Math.abs(b) : calcGCD(b, a % b);
     }
     public static void startGame() {
         String instruction = "Find the greatest common divisor of given numbers.";
-        Random random = new Random();
         String[] questions = new String[COUNT_OF_STEP_GAME];
         String[] answers = new String[COUNT_OF_STEP_GAME];
 
