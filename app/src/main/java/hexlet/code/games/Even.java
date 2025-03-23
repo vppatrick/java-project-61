@@ -6,9 +6,9 @@ import java.util.Random;
 public class Even {
     public static final int COUNT_OF_STEP_GAME = 3;
     public static final int RANDOM_UPPER_LIMIT = 100;
+    private static final Random random = new Random();
     public static void startGame() {
         String instruction = "Answer 'yes' if the number is even, otherwise answer 'no'.";
-        Random random = new Random();
         String[] questions = new String[COUNT_OF_STEP_GAME];
         String[] answers = new String[COUNT_OF_STEP_GAME];
 
