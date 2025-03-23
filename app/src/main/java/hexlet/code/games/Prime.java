@@ -6,6 +6,7 @@ import java.util.Random;
 public class Prime {
     public static final int COUNT_OF_STEP_GAME = 3;
     public static final int RANDOM_UPPER_LIMIT = 41;
+    private static final Random random = new Random();
     private static boolean isPrime(int n) {
         if (n < 2) {
             return false;
@@ -19,7 +20,6 @@ public class Prime {
     }
     public static void startGame() {
         String instruction = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-        Random random = new Random();
         String[] questions = new String[COUNT_OF_STEP_GAME];
         String[] answers = new String[COUNT_OF_STEP_GAME];
 
