@@ -7,10 +7,13 @@ public class Even {
     public static void startGame() {
         String instruction = "Answer 'yes' if the number is even, otherwise answer 'no'.";
         Random random = new Random();
-        String[] questions = new String[3];
-        String[] answers = new String[3];
+        int count = 3;
+        String[] questions = new String[count];
+        String[] answers = new String[count];
+
+        int limit = 100;
         for (int i = 0; i < 3; i++) {
-            int number = random.nextInt(100);
+            int number = random.nextInt(limit);
             questions[i] = Integer.toString(number);
             if (number % 2 == 0) {
                 answers[i] = "yes";
