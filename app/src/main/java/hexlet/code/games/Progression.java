@@ -8,9 +8,9 @@ public class Progression {
     public static final int RANDOM_UPPER_LIMIT = 91;
     public static final int MIN_RANDOM_NUMBER = 5;
     public static final int MAX_RANDOM_NUMBER = 10;
+    private static final Random random = new Random();
     public static void startGame() {
         String instruction = "What number is missing in the progression?";
-        Random random = new Random();
         String[] questions = new String[COUNT_OF_STEP_GAME];
         String[] answers = new String[COUNT_OF_STEP_GAME];
 
