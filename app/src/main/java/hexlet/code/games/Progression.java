@@ -7,10 +7,12 @@ public class Progression {
     public static void startGame() {
         String instruction = "What number is missing in the progression?";
         Random random = new Random();
-        String[] questions = new String[3];
-        String[] answers = new String[3];
+        int count = 3;
+        String[] questions = new String[count];
+        String[] answers = new String[count];
 
-        for (int i = 0; i < 3; i++) {
+        int limit = 90;
+        for (int i = 0; i < count; i++) {
             int min = 5;
             int max = 10;
             int length = random.nextInt(max - min + 1) + min;
@@ -21,7 +23,7 @@ public class Progression {
 
             int indexOfHiddenItem = random.nextInt(length);
 
-            int initValue = random.nextInt(90) + 2;
+            int initValue = random.nextInt(limit) + 2;
             progression[0] = Integer.toString(initValue);
 
             for (int j = 1; j < length; j++) {
