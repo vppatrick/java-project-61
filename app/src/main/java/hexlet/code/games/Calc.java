@@ -7,14 +7,16 @@ public class Calc {
     public static void startGame() {
         String instruction = "What is the result of the expression?";
         Random random = new Random();
-        String[] questions = new String[3];
-        String[] answers = new String[3];
+        int count = 3;
+        String[] questions = new String[count];
+        String[] answers = new String[count];
         Character[] ops = {'+', '-', '*'};
 
-        for (int i = 0; i < 3; i++) {
-            int number1 = random.nextInt(10);
-            int number2 = random.nextInt(10);
-            int index = random.nextInt(3);
+        int limit = 10;
+        for (int i = 0; i < count; i++) {
+            int number1 = random.nextInt(limit);
+            int number2 = random.nextInt(limit);
+            int index = random.nextInt(count);
             questions[i] = number1 + " " + ops[index] + " " + number2;
 
             int result = 0;
