@@ -4,7 +4,6 @@ import org.gradle.api.tasks.testing.logging.TestLogEvent
 plugins {
     application
     jacoco
-    id("java")
     id("checkstyle")
     id("com.github.ben-manes.versions") version "0.50.0"
     // Плагин для публикации отчета о покрытии тестами на SonarQube
