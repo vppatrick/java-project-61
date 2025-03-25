@@ -4,9 +4,10 @@ import hexlet.code.Engine;
 import java.util.Random;
 
 public class Prime {
-    public static final int COUNT_OF_STEP_GAME = 3;
+    public static final int COUNT_OF_STEP_GAME = Engine.COUNT_OF_STEP_GAME;
     public static final int RANDOM_UPPER_LIMIT = 41;
     private static final Random RANDOM = new Random();
+
     private static boolean isPrime(int n) {
         if (n < 2) {
             return false;
@@ -18,20 +19,20 @@ public class Prime {
         }
         return true;
     }
+
     public static void startGame() {
         String instruction = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-        String[] questions = new String[COUNT_OF_STEP_GAME];
-        String[] answers = new String[COUNT_OF_STEP_GAME];
+        String[][] questionsAndAnswer = new String[COUNT_OF_STEP_GAME][2];
 
         for (int i = 0; i < COUNT_OF_STEP_GAME; i++) {
             int number = RANDOM.nextInt(RANDOM_UPPER_LIMIT) + 1;
-            questions[i] = Integer.toString(number);
+            questionsAndAnswer[i][0] = Integer.toString(number);
             if (isPrime(number)) {
-                answers[i] = "yes";
+                questionsAndAnswer[i][1] = "yes";
             } else {
-                answers[i] = "no";
+                questionsAndAnswer[i][1] = "no";
             }
         }
-        Engine.start(instruction, questions, answers);
+        Engine.start(instruction, questionsAndAnswer);
     }
 }
