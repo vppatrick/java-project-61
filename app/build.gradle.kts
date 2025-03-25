@@ -6,8 +6,7 @@ plugins {
     jacoco
     id("java")
     id("checkstyle")
-    id("se.patrikerdes.use-latest-versions") version "0.2.18"
-    id("com.github.ben-manes.versions") version "0.41.0"
+    id("com.github.ben-manes.versions") version "0.52.0"
     // Плагин для публикации отчета о покрытии тестами на SonarQube
     id("org.sonarqube") version "6.0.1.5171"
 }
