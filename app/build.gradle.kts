@@ -7,7 +7,7 @@ plugins {
     id("java")
     id("checkstyle")
     id("com.github.ben-manes.versions") version "0.52.0"
-    id "org.sonarqube" version "6.0.1.5171"
+    id("org.sonarqube") version "6.0.1.5171"
 }
 
 group = "hexlet.code"
@@ -40,8 +40,8 @@ tasks.getByName("run", JavaExec::class) {
 
 sonar {
   properties {
-    property "sonar.projectKey", "vppatrick_java-project-61"
-    property "sonar.organization", "vppatrick"
-    property "sonar.host.url", "https://sonarcloud.io"
+    property("sonar.projectKey", "vppatrick_java-project-61")
+    property("sonar.organization", "vppatrick")
+    property("sonar.host.url", "https://sonarcloud.io")
   }
 }
