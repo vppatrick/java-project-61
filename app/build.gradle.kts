@@ -7,8 +7,6 @@ plugins {
     id("java")
     id("checkstyle")
     id("com.github.ben-manes.versions") version "0.52.0"
-    // Плагин для публикации отчета о покрытии тестами на SonarQube
-    id("org.sonarqube") version "6.0.1.5171"
 }
 
 group = "hexlet.code"
@@ -31,15 +29,6 @@ tasks.test {
         events = mutableSetOf(TestLogEvent.FAILED, TestLogEvent.PASSED, TestLogEvent.SKIPPED)
         showStandardStreams = true
     }
-}
-
-// Конфигурация плагина org.sonarqube
-sonar {
-  properties {
-    property("sonar.projectKey", "vppatrick_java-project-61")
-    property("sonar.organization", "vppatrick")
-    property("sonar.host.url", "https://sonarcloud.io")
-  }
 }
 
 tasks.jacocoTestReport { reports { xml.required.set(true) } }
