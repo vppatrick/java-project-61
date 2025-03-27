@@ -10,10 +10,7 @@ public class Progression {
     public static final int MAX_RANDOM_NUMBER = 10;
     private static final Random RANDOM = new Random();
 
-    private static String[] getProgression() {
-        int length = RANDOM.nextInt(MAX_RANDOM_NUMBER - MIN_RANDOM_NUMBER + 1) + MIN_RANDOM_NUMBER;
-        int increment = RANDOM.nextInt(MAX_RANDOM_NUMBER - MIN_RANDOM_NUMBER) + 2;
-        int initValue = RANDOM.nextInt(RANDOM_UPPER_LIMIT) + 2;
+    private static String[] getProgression(int initValue, int increment, int length) {
 
         String[] result = new String[length];
         result[0] = Integer.toString(initValue);
@@ -29,7 +26,10 @@ public class Progression {
         String[][] questionsAndAnswer = new String[COUNT_OF_STEP_GAME][2];
 
         for (int i = 0; i < COUNT_OF_STEP_GAME; i++) {
-            String[] progression = getProgression();
+            int initValue = RANDOM.nextInt(RANDOM_UPPER_LIMIT) + 2;
+            int increment = RANDOM.nextInt(MAX_RANDOM_NUMBER - MIN_RANDOM_NUMBER) + 2;
+            int length = RANDOM.nextInt(MAX_RANDOM_NUMBER - MIN_RANDOM_NUMBER + 1) + MIN_RANDOM_NUMBER;
+            String[] progression = getProgression(initValue, increment, length);
             int indexOfHiddenItem = RANDOM.nextInt(progression.length);
 
             questionsAndAnswer[i][1] = progression[indexOfHiddenItem];
